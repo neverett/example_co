@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+example_co/__init__.py
+example_co/assets.py
+example_co/definitions.py
+example_co.egg-info/PKG-INFO
+example_co.egg-info/SOURCES.txt
+example_co.egg-info/dependency_links.txt
+example_co.egg-info/requires.txt
+example_co.egg-info/top_level.txt
