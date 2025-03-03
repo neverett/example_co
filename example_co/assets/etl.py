@@ -5,7 +5,7 @@ import dagster as dg
     kinds={"parquet"},
     group_name="sensitive_data",
     tags={"private":''},
-    owners=["ada.dagster@example.com", "team:data_eng"],
+    owners=["ada.dagster@example.com", "team:data_engineering"],
     key_prefix="my_prefix"
 )
 def raw_data_a() -> None:
@@ -13,7 +13,7 @@ def raw_data_a() -> None:
 
 @dg.asset(
     kinds={"parquet"},
-    owners=["ada.dagster@example.com", "team:data_eng"],
+    owners=["ada.dagster@example.com", "team:data_engineering"],
     group_name="sensitive_data",
     tags={"private":''},
 )
@@ -24,7 +24,7 @@ def raw_data_b() -> None:
     group_name="sensitive_data",
     tags={"private":''},
     kinds={"s3"},
-    owners=["ada.dagster@example.com", "team:data_eng"],
+    owners=["ada.dagster@example.com", "team:data_engineering"],
 )
 def raw_data_c() -> None:
     pass
@@ -35,7 +35,7 @@ def raw_data_c() -> None:
     deps=[dg.AssetKey(["my_prefix", "raw_data_a"])],
     group_name="public_data",
     kinds={"postgres", "polars"},
-    owners=["team:data_eng"],
+    owners=["team:data_engineering"],
     tags={"public":''}
 )
 def cleaned_data_a() -> None:
@@ -45,7 +45,7 @@ def cleaned_data_a() -> None:
     deps=["raw_data_b"],
     group_name="public_data",
     kinds={"postgres", "polars"},
-    owners=["team:data_eng"],
+    owners=["team:data_engineering"],
     tags={'public':''}
 )
 def cleaned_data_b() -> None:
@@ -55,7 +55,7 @@ def cleaned_data_b() -> None:
     deps=["raw_data_c"],
     group_name="public_data",
     kinds={"postgres", "polars"},
-    owners=["team:data_eng"],
+    owners=["team:data_engineering"],
     tags={'public':''}
 )
 def cleaned_data_c() -> None:
@@ -72,7 +72,7 @@ def cleaned_data_c() -> None:
     group_name="public_data",
     kinds={"postgres"},
     tags={'public':''},
-    owners=["john.dagster@example.com", "team:data_eng"],
+    owners=["john.dagster@example.com", "team:data_engineering"],
 )
 def combo_a_b_c_data() -> None:
     pass
@@ -85,7 +85,7 @@ def combo_a_b_c_data() -> None:
     group_name="public_data",
     kinds={"postgres"},
     tags={'public':''},
-    owners=["john.dagster@example.com", "team:data_eng"],
+    owners=["john.dagster@example.com", "team:data_engineering"],
 )
 def combo_b_c_data() -> None:
     pass
