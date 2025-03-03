@@ -5,7 +5,7 @@ import dagster as dg
     kinds={"parquet"},
     group_name="sensitive_data",
     tags={"private":''},
-    owners=["ada.dagster@example.com", "team:data_engineering"],
+    owners=["sally.dagster@example.com", "team:data_engineering"],
     key_prefix="my_prefix"
 )
 def raw_data_a() -> None:
@@ -13,7 +13,7 @@ def raw_data_a() -> None:
 
 @dg.asset(
     kinds={"parquet"},
-    owners=["ada.dagster@example.com", "team:data_engineering"],
+    owners=["sally.dagster@example.com", "team:data_engineering"],
     group_name="sensitive_data",
     tags={"private":''},
 )
@@ -24,7 +24,7 @@ def raw_data_b() -> None:
     group_name="sensitive_data",
     tags={"private":''},
     kinds={"s3"},
-    owners=["ada.dagster@example.com", "team:data_engineering"],
+    owners=["sally.dagster@example.com", "team:data_engineering"],
 )
 def raw_data_c() -> None:
     pass
