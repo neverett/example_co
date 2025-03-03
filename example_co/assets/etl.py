@@ -22,7 +22,7 @@ def raw_data_b() -> None:
 
 @dg.asset(
     group_name="sensitive_data",
-    tags={"private":''},
+    tags={"private":'', "customer_data":''},
     kinds={"s3"},
     owners=["nora.dagster@example.com", "team:data_engineering"],
 )
